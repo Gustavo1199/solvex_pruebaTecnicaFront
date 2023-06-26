@@ -1,0 +1,10 @@
+/*@import '~sweetalert2/src/sweetalert2.scss';*/
+
+.container {
+  justify-content: center;
+  height: 100%; /* Ajusta la altura según tus necesidades */
+}
+
+.content {
+  /* Estilos para el contenido del contenedor */
+}

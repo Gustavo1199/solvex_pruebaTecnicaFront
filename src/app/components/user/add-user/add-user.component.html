@@ -1,0 +1,30 @@
+<div class="form-container" [formGroup]="userForm">
+  <form>
+    <div class="form-group">
+      <label for="userName">Nombre de usuario:</label>
+      <input type="text" id="userName" class="form-control" formControlName="userName" placeholder="Ingrese el nombre de usuario">
+    </div>
+
+    <div class="form-group">
+      <label for="email">Correo electrónico:</label>
+      <input type="email" id="email" class="form-control" formControlName="email" placeholder="Ingrese el correo electrónico">
+    </div>
+
+    <div class="form-group">
+      <label for="password">Contraseña:</label>
+      <input type="password" id="password" class="form-control" formControlName="password" placeholder="Ingrese la contraseña">
+    </div>
+
+    <div class="form-group">
+      <label for="rol">Rol:</label>
+      <select id="rol" class="form-control" formControlName="rol">
+        <option value="" disabled selected>Seleccione el rol</option>
+        <option value="admin">Administrador</option>
+        <option value="user">Usuario</option>
+        <option value="seller">Vendedor</option>
+
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="addUser()">Guardar</button>
+  </form>
+</div>

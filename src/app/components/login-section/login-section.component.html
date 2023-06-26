@@ -1,0 +1,12 @@
+<div class="login-page">
+  <div class="form">
+    <div class="img-login">
+      <img src="https://cdn-icons-png.flaticon.com/512/776/776645.png"  alt="">
+    </div>
+    <form class="login-form" [formGroup]="loginForm" (ngSubmit)="loginUser()">
+      <input type="text" formControlName="user" placeholder="Usuario"/>
+      <input type="password" formControlName="pass" placeholder="Clave"/>
+      <button >Acceder</button>
+    </form>
+  </div>
+</div>

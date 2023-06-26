@@ -1,0 +1,83 @@
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="addProductPriceAddUser" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <!-- <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1> -->
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <app-add-product-price (getAllProductPrice)="getProductPrice()"></app-add-product-price>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="detailsProductprice" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <!-- <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1> -->
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <app-get-product-price-details ></app-get-product-price-details>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="editProductPrice" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <!-- <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1> -->
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <app-edit-product-price (getAllProductPrice)="getProductPrice()"></app-edit-product-price>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!---------------------------------------------------------------------------------------------->
+<div class="input-container">
+  <input placeholder="" type="text" [formControl]="myControl" required>
+  <label>Buscar Product</label>
+</div>
+
+<div class="move-right" *ngIf="isAdmin ||isSeller">
+  <button class="green-button" data-bs-toggle="modal" data-bs-target="#addProductPriceAddUser" (click)="addProduct()"><h4>+</h4></button>
+</div>
+
+
+<div class="container p-5">
+  <div class="row">
+    <div class="card col-md-4 ml-4 mt-4" *ngFor="let productItem of productsPrice" style="cursor: pointer;">
+      <div>
+        <div class="card-image">
+          <img  class="animated-image" src="{{relarivePath + productItem.urlImage}}" alt="Imagen de ejemplo">
+        {{relarivePath + productItem.urlImage}}
+        {{'assets/Images/' + productItem.urlImage}}
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">{{productItem.product.name}}</h3>
+          <p class="card-description">{{productItem.color}}</p>
+          <p class="card-description">{{ productItem.price | currency}}</p>
+          <p class="card-description text-truncate">{{productItem.product.description}}</p>
+        </div>
+      </div>
+      <div class="button-container">
+        <button *ngIf="isAdmin||isSeller" data-bs-toggle="modal"  data-bs-target="#editProductPrice" (click)="updateUser(productItem)">Actualizar</button>
+        <button  *ngIf="isAdmin||isSeller||isUser" data-bs-toggle="modal" data-bs-target="#detailsProductprice" (click)="getProductPriceDetails(productItem)">Detalles</button>
+        <button  *ngIf="isAdmin" (click)="deleteProductPrice(productItem.id)">Eliminar</button>
+      </div>
+    </div>
+  </div>
+</div>
+

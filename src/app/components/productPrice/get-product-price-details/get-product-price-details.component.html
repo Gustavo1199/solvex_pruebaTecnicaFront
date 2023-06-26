@@ -1,0 +1,23 @@
+
+<div class="product-details">
+  <div class="product-image">
+    <img src="{{relarivePath+productPrice?.urlImage}}" alt="Imagen del producto">
+  </div>
+  <h1>Detalles del Producto</h1>
+  <hr>
+  <div>
+    <strong>ID del producto:</strong> {{ productPrice?.id }}
+  </div>
+  <div>
+    <strong>Nombre del producto:</strong> {{ productPrice?.product?.name }}
+  </div>
+  <div>
+    <strong>Precio:</strong> {{ productPrice?.price }}
+  </div>
+  <div>
+    <strong>Color:</strong> {{ productPrice?.color }}
+  </div>
+  <div>
+    <strong>Descripción del producto:</strong> {{ productPrice?.product?.description }}
+  </div>
+</div>

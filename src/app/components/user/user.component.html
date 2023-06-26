@@ -1,0 +1,75 @@
+
+<!-- Modal -->
+<div class="modal fade" id="modalAddUser" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <!-- <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1> -->
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <app-add-user (getAllUsers)="getAllUsers()"></app-add-user>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modalUserDetails" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <!-- <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1> -->
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <app-user-details></app-user-details>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modalUserEdit" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <!-- <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1> -->
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <app-edit-user (getAllUsers)="getAllUsers()" ></app-edit-user>
+      </div>
+    </div>
+  </div>
+</div>
+<!------------------------------------USER MODALS--------------------------------------------------------------->
+<div class="move-right" *ngIf="isAdmin||isSeller">
+  <button class="green-button btn-succes" data-bs-toggle="modal" data-bs-target="#modalAddUser">+</button>
+</div>
+
+<div class="container p-5">
+  <div class="row">
+    <div class="card col-md-4" *ngFor="let userItem of productSlice" style="cursor: pointer;">
+
+      <div class="card-image">
+        <img width="100px" src="https://cdn-icons-png.flaticon.com/512/21/21104.png" alt="">
+      </div>
+      <div class="card-content">
+        <h3 class="card-title">{{userItem.userName}}</h3>
+      </div>
+      <div class="card-buttons">
+        <button *ngIf="isAdmin|| isSeller" (click)="deleteUser(userItem)"><img src="../../../assets/trash-can.png" alt=""></button>
+        <button *ngIf="isAdmin||isSeller||isUser" data-bs-toggle="modal" data-bs-target="#modalUserDetails" (click)="getUserDetails(userItem)"><img src="../../../assets/options.png" alt=""></button>
+        <button *ngIf="isAdmin" data-bs-toggle="modal" data-bs-target="#modalUserEdit" (click)="selectUserToUpdate(userItem)"><img src="../../../assets/pencil.png" alt=""></button>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <ngb-pagination
+      [(page)]="currentPage"
+      [pageSize]="pageSize"
+      [collectionSize]="users.length"
+      (pageChange)="onPageChange($event)"
+      class="mt-3"
+    ></ngb-pagination>
+  </div>
+</div>

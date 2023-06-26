@@ -1,0 +1,16 @@
+
+
+<div class="product-details">
+  <div>
+    <strong>ID:</strong> {{ user?.id }}
+  </div>
+  <div>
+    <strong>Nombre:</strong> {{ user?.userName}}
+  </div>
+  <div>
+    <strong>Email:</strong> {{ user?.email}}
+  </div>
+  <div>
+    <strong>Rol:</strong> <div *ngFor="let rolesItem of user?.roles">{{rolesItem}}</div>
+  </div>
+</div>

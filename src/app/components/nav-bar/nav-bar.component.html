@@ -1,0 +1,15 @@
+<nav class="navbar">
+  <ul class="nav-list">
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/home" routerLinkActive="active">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/product" routerLinkActive="active">Productos</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/user" routerLinkActive="active">Usuarios</a>
+    </li>
+
+  </ul>
+    <a class="nav-link" routerLink="/" (click)="destroyToken()" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Cerrar Sesión</a>
+</nav>

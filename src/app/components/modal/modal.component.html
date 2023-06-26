@@ -1,0 +1,7 @@
+<div class="modal" [class.visible]="isVisible">
+  <div class="modal-content">
+    <img [src]="imageSrc" *ngIf="imageSrc" alt="Modal Image">
+    <ng-content></ng-content>
+    <button class="close-button" (click)="closeModal()">Cerrar</button>
+  </div>
+</div>

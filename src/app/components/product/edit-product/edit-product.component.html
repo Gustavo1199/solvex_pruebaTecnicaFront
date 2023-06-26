@@ -1,0 +1,15 @@
+<div class="form-container" [formGroup]="productForm">
+  <form>
+    <div class="form-group">
+      <label for="name">Nombre:</label>
+      <input type="text" id="name" class="form-control" formControlName="name" placeholder="Ingrese el nombre">
+    </div>
+
+    <div class="form-group">
+      <label for="description">Descripción:</label>
+      <textarea id="description" class="form-control" formControlName="description" placeholder="Ingrese la descripción"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary" (click)="updateProduct()">Editar</button>
+  </form>
+</div>
