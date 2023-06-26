@@ -41,14 +41,11 @@ export class UserComponent {
   }
 
    getAllUsers() {
-    debugger
 
     ( this._userServices.getUser()).subscribe((userData: User[]) => {
       this.users = userData;
     });
-    console.log(this.users)
-    console.log("")
-    console.log("No traje na"+this.users)
+   
   }
 
   async deleteUser(model: User) {

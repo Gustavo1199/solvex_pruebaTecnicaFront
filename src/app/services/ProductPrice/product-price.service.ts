@@ -19,7 +19,7 @@ export class ProductPriceService {
 getAllProducts():Observable<ProductPrice[]>{
 
   const headers = new HttpHeaders().set('Authorization', `Bearer ${this.modifiedToken}`);
-  let productsPrice = this._http.post<ProductPrice[]>(`${this.path}/GetAllProductPrice/1/10`,[],{headers});
+  let productsPrice = this._http.post<ProductPrice[]>(`${this.path}/GetAllProductPrice/1/1000`,[],{headers});
   return productsPrice;
 }
 addProductPrice(model:ProductPrice)
@@ -37,7 +37,7 @@ deleteProductPrice(productPriceId:number)
 }
 searchProductPrice(inputField:string,value:string):Observable<ProductPrice[]>{
   const headers = new HttpHeaders().set('Authorization', `Bearer ${this.modifiedToken}`);
-  let productsPrice = this._http.post<ProductPrice[]>(`${this.path}/GetAllProductPrice/1/10`,[{fieldName: `${inputField}`,value:`${value}` }],{headers});
+  let productsPrice = this._http.post<ProductPrice[]>(`${this.path}/GetAllProductPrice/1/1000`,[{fieldName: `${inputField}`,value:`${value}` }],{headers});
   return productsPrice;
 }
 updateProductPrice(model:ProductPrice)
@@ -49,13 +49,9 @@ updateProductPrice(model:ProductPrice)
 getProductById(inputField:string,value:number):Observable<ProductPrice>{
 
   const headers = new HttpHeaders().set('Authorization', `Bearer ${this.modifiedToken}`);
-  let productsPrice = this._http.post<ProductPrice>(`${this.path}/GetAllProductPrice/1/10`,[{fieldName: `id`,value:`${value}` }],{headers});
+  let productsPrice = this._http.post<ProductPrice>(`${this.path}/GetAllProductPrice/1/1000`,[{fieldName: `id`,value:`${value}` }],{headers});
   return productsPrice;
 }
-
-
-
-
 
 
 }
